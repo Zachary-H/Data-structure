@@ -58,15 +58,15 @@ bool Push(ptrStack st, ElemType val)
 		return false;
 	}
 
-	if (!IsFull(st))
+	if (IsFull(st))
 	{
-		st->data[st->top] = val;
-		st->top++;
-
-		return true;
+		return false;
 	}
 
-	return false;
+	st->data[st->top] = val;
+	st->top++;
+
+	return true;
 }
 
 bool Pop(ptrStack st, ElemType* val)
@@ -121,6 +121,98 @@ bool Destroy(ptrStack st)
 
 	st->stack_size = 0;
 	st->top = 0;
+
+	return true;
+}
+
+int In(char e)
+{
+	if (e == '+' || e == '-' || e == '*' || e == '/' || e == '(' || e == ')' || e == '#')
+		return 1;//ÊÇ 
+	else
+		return 0; //²»ÊÇ 
+}
+char Compare(char a, char b)
+{
+	char f;
+	if (a == '+' || a == '-')
+	{
+		if (b == '+' || b == '-')
+			f = '>';
+		else if (b == '*' || b == '/')
+			f = '<';
+	}
+	else if (a == '*' || a == '/')
+	{
+		if (b == '+' || b == '-' || b == '*' || b == '/')
+			f = '>';
+	}
+	else if (a == '#')
+	{
+		if (b == '+' || b == '-' || b == '*' || b == '/' || b == '(')
+			f = '<';
+		else if (b == '#')
+			f = '=';
+	}
+	return f;
+}
+
+bool InfixToSuffix(ptrStack st)
+{
+	char ch;
+	char c;
+
+	ch = getchar();
+
+	while (1)
+	{
+		if (!In(ch))
+		{
+			printf("%c", ch);
+		}
+
+		else if (ch == '#')
+		{
+			while (st->top != 0)
+			{
+				Pop(st, &c);
+				printf("%c", c);
+			}
+		}
+
+		else if (ch == ')')
+		{ 
+			Pop(st, &c);
+			while (c != '(')
+			{
+				printf("%c", c);
+				Pop(st, &c);
+			}
+		}
+
+		else if (ch == '(')
+		{
+			Push(st, ch);
+		}
+			
+		else if (st->top != st->stack_size)
+		{
+			Push(st, ch);
+		}
+			
+		else 
+		{          
+			char t = Compare(Top(st, &c), ch);
+			while (t == '>')
+			{
+				Pop(st, &c);
+				printf("%c", c);
+				t = Compare(Top(st, &c), ch);
+			}
+			Push(st, ch);
+		}
+		ch = getchar();
+	}
 
 	return true;
 }

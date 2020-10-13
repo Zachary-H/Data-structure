@@ -286,3 +286,24 @@ SingleList FindNodeOfkTail(SingleList slist, int k)
 
 	return p;
 }
+
+SingleList ReverseList(SingleList head)
+{
+	SingleList p, s, t = NULL;
+	p = head;
+	s = p->next;
+
+	while (s->next != NULL)
+	{
+		t = s->next;
+		s->next = p;
+		p = s;
+		s = t;
+	}
+
+	s->next = p;
+	head->next->next = NULL;
+	head->next = s;
+
+	return head->next;
+}

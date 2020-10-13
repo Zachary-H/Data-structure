@@ -25,3 +25,9 @@ bool ListStackPop(ptrListStack lst, ElemType* val);
 bool ListStackTop(ptrListStack lst, ElemType* val);
 
 bool ListStackDestroy(ptrListStack lst);
+
+//int In(char e);//判断读入字符是否为运算符
+//
+//char Compare(char a, char b);//比较运算符的优先级
+//
+//bool InfixToSuffix(ptrListStack lst);

@@ -3,6 +3,7 @@
 #include <malloc.h>
 #include <string.h>
 #include <assert.h>
+#include <ctype.h>
 
 bool ListStackInit(ptrListStack lst)
 {
@@ -114,3 +115,50 @@ bool ListStackDestroy(ptrListStack lst)
 
 	return true;
 }
+
+//int In(char e)
+//{
+//	if (e == '+' || e == '-' || e == '*' || e == '/' || e == '(' || e == ')' || e == '#')
+//		return 1;//ÊÇ 
+//	else
+//		return 0; //²»ÊÇ 
+//}
+//char Compare(char a, char b)
+//{
+//	char f;
+//	if (a == '+' || a == '-')
+//	{
+//		if (b == '+' || b == '-')
+//			f = '>';
+//		else if (b == '*' || b == '/')
+//			f = '<';
+//	}
+//	else if (a == '*' || a == '/')
+//	{
+//		if (b == '+' || b == '-' || b == '*' || b == '/')
+//			f = '>';
+//	}
+//	else if (a == '#')
+//	{
+//		if (b == '+' || b == '-' || b == '*' || b == '/' || b == '(')
+//			f = '<';
+//		else if (b == '#')
+//			f = '=';
+//	}
+//	return f;
+//}
+//
+//bool InfixToSuffix(ptrListStack lst)
+//{
+//	char ch;
+//	char c;
+//
+//	ch = getchar();
+//
+//	while (1)
+//	{
+//
+//	}
+//
+//	return true;
+//}

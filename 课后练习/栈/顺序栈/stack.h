@@ -1,6 +1,6 @@
 #pragma once
 
-typedef int ElemType;
+typedef char ElemType;
 
 typedef struct _stack
 {
@@ -22,6 +22,12 @@ bool Pop(ptrStack st, ElemType* val);
 bool Top(ptrStack st, ElemType* val);
 
 bool Destroy(ptrStack st);
+
+int In(char e);//判断读入字符是否为运算符
+
+char Compare(char a, char b);//比较运算符的优先级
+
+bool InfixToSuffix(ptrStack lst);
 
 
 

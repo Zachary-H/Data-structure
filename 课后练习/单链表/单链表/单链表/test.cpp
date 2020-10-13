@@ -3,6 +3,27 @@
 
 int main()
 {
+	Node head;
+	InitSingleList(&head);
+
+	for (int i = 0; i < 5; ++i)
+	{
+		InsertSingleTail(&head, i + 1);
+	}
+
+	ShowSingleList(&head);
+
+	ReverseList(&head);
+
+	ShowSingleList(&head);
+
+	return 0;
+}
+
+
+#if 0
+int main()
+{
 	Node head;  
 	InitSingleList(&head);
 
@@ -39,3 +60,5 @@ int main()
 	ShowSingleList(&head);
 
 }
+
+#endif

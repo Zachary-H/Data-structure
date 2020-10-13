@@ -34,3 +34,5 @@ void DeletePosInO1(SingleList p);
 
 int IsCross(SingleList a, SingleList b);
 
+//¡¥±ÌƒÊ÷√≤‚ ‘
+SingleList ReverseList(SingleList slist);

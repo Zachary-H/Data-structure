@@ -7,5 +7,7 @@ int main()
 	StackInit(&st);
 	Push(&st, 10);
 
+	InfixToSuffix(&st);
+
 	return 0;
 }
